@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.entity.ParsedInput;
 import org.example.entity.Simulation;
+import org.example.helper.InputParser;
 import org.example.helper.adapter.TextInputParser;
 import org.example.helper.adapter.TXTInputFileReader;
 
@@ -19,8 +20,9 @@ public class Main
         try {
             String inputPath = args[0];
 
-            TextInputParser parser = new TextInputParser(new TXTInputFileReader());
+            InputParser parser = new TextInputParser(new TXTInputFileReader());
             ParsedInput parsedInput = parser.parse(inputPath);
+
             Simulation simulation = new Simulation(parsedInput.grid());
             simulation.run(parsedInput.roverInstructions());
 

@@ -38,7 +38,6 @@ public class RoverMovementTest {
         rover = new Rover(init_x, init_y, Direction.W, grid);
 
         rover.move();
-
         assertEquals(init_y, rover.getY());
         assertEquals(init_x-1, rover.getX());
     }
@@ -75,11 +74,11 @@ public class RoverMovementTest {
 
     @Test
     public void shouldNotMoveNorth(){
-        rover = new Rover(init_x, grid.getMaxY(), Direction.N, grid);
+        rover = new Rover(init_x, grid.maxY(), Direction.N, grid);
 
         rover.move();
 
-        assertEquals(grid.getMaxY(), rover.getY());
+        assertEquals(grid.maxY(), rover.getY());
         assertEquals(init_x, rover.getX());
     }
 

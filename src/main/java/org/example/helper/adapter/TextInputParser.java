@@ -4,13 +4,14 @@ import org.example.entity.Grid;
 import org.example.entity.ParsedInput;
 import org.example.entity.RoverInstruction;
 import org.example.entity.enums.Direction;
+import org.example.helper.InputParser;
 import org.example.helper.InputReader;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextInputParser {
+public class TextInputParser implements InputParser {
 
     private final InputReader inputReader;
 
@@ -18,6 +19,7 @@ public class TextInputParser {
         this.inputReader = inputReader;
     }
 
+    @Override
     public ParsedInput parse(String path) throws IOException {
         List<String> lines = inputReader.readLines(path);
 

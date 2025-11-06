@@ -15,7 +15,6 @@ public class TXTInputFileReader implements InputReader {
             throw new IllegalArgumentException("File path must not be null or empty");
         }
         return Files.readAllLines(Path.of(path));
-
     }
 
 

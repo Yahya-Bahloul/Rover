@@ -1,6 +1,8 @@
 package org.example.entity;
 
 import org.example.entity.enums.Direction;
+import org.example.entity.enums.Instruction;
+
 import java.util.List;
 
 public class Simulation {
@@ -27,11 +29,11 @@ public class Simulation {
 
     private void executeInstructions(Rover rover, String instructions) {
         for (char c : instructions.toCharArray()) {
-            switch (c) {
-                case 'L' -> rover.turnLeft();
-                case 'R' -> rover.turnRight();
-                case 'M' -> rover.move();
-                default -> throw new IllegalArgumentException("Invalid instruction: " + c);
+            Instruction instruction = Instruction.fromChar(c);
+            switch (instruction) {
+                case L -> rover.turnLeft();
+                case R -> rover.turnRight();
+                case M -> rover.move();
             }
         }
     }
